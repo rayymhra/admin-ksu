@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm py-0 fixed-top">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <img src="{{ asset('assets/images/Logo-KSU-4.png') }}" alt="Logo" width="210" />
+                <img src="{{ asset('assets/images/Logo KSU-4.png') }}" alt="Logo" width="210" />
             </a>
 
             <!-- Hamburger button for mobile -->
@@ -64,7 +64,7 @@
     <div class="container mb-5">
         <div class="row align-items-center">
             <div class="col-12 col-md-8 mb-3 mb-md-0">
-                <img src="{{ asset('assets/images/Logo-KSU-5.png') }}" alt="" height="80">
+                <img src="{{ asset('assets/images/Logo KSU-5.png') }}" alt="" height="80">
                 <p class="text-white fw-normal mt-2 mb-0">
                     Jalan Alternatif Cibubur Pasar Lama No. 74 Cileungsi, Bogor - Jawa Barat 16820
                 </p>
