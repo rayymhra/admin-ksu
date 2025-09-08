@@ -1,0 +1,567 @@
+/* GOTHAM FONTS */
+/* Book (normal 400) */
+@font-face {
+    font-family: 'Gotham';
+    src: url('./fonts/gotham-family/Gotham/Gotham-Book.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Book Italic */
+@font-face {
+    font-family: 'Gotham';
+    src: url('./fonts/gotham-family/Gotham/Gotham-BookItalic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Light (300) */
+@font-face {
+    font-family: 'Gotham';
+    src: url('./fonts/gotham-family/Gotham/Gotham-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Light Italic */
+@font-face {
+    font-family: 'Gotham';
+    src: url('./fonts/gotham-family/Gotham/Gotham-LightItalic.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+/* Medium (500) */
+@font-face {
+    font-family: 'Gotham';
+    src: url('./fonts/gotham-family/Gotham/Gotham-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Medium Italic */
+@font-face {
+    font-family: 'Gotham';
+    src: url('./fonts/gotham-family/Gotham/Gotham-MediumItalic.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Bold (700) */
+@font-face {
+    font-family: 'Gotham';
+    src: url('./fonts/gotham-family/Gotham/Gotham-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Bold Italic */
+@font-face {
+    font-family: 'Gotham';
+    src: url('./fonts/gotham-family/Gotham/Gotham-BoldItalic.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* Black (800) */
+@font-face {
+    font-family: 'Gotham';
+    src: url('./fonts/gotham-family/Gotham/Gotham-Black.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+/* Black Italic */
+@font-face {
+    font-family: 'Gotham';
+    src: url('./fonts/gotham-family/Gotham/Gotham-BlackItalic.otf') format('opentype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+.btn-danger {
+    padding: 9px 14px;
+    border-radius: 13px;
+    background-color: #CB423F;
+}
+
+.text-danger {
+    color: #CB423F !important;
+}
+
+
+body {
+    font-family: 'Gotham', sans-serif;
+    background-color: #FDFBFB !important;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+
+/* NAVBAR */
+.navbar {
+    background-color: white !important;
+}
+
+.nav-item {
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid transparent;
+    transition: border-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.nav-item:hover {
+    border-bottom: #CB423F 3px solid;
+    text-shadow: 0 0 0.5px currentColor, 0 0 0.5px currentColor;
+}
+
+.actived {
+    text-shadow: 0 0 0.5px currentColor, 0 0 0.5px currentColor;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        padding-top: 10px;
+    }
+
+    .nav-item {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+}
+
+
+/* HERO SECTION */
+.hero-section {
+    margin-top: 5.5rem !important;
+}
+
+@media (min-width: 1024px) {
+  #heroCarousel .carousel-item {
+    max-width: 1920px;
+  }
+}
+
+@media (max-width: 1023px) {
+  #heroCarousel .carousel-item {
+    max-width: 1024px;
+  }
+}
+
+@media (max-width: 360px) {
+  #heroCarousel .carousel-item {
+    max-width: 360px;
+  }
+}
+
+
+
+
+/* OUR BRAND */
+.our-brand-section {
+    background-color: #CB423F;
+}
+
+.brand-slider {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.brand-track {
+    display: flex;
+    animation: scrollBrands 30s linear infinite;
+    width: max-content;
+    align-items: center;
+}
+
+.brand-track img {
+    width: 200px;
+    margin: 0 30px;
+    flex-shrink: 0;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.brand-track img:hover {
+    transform: scale(1.05);
+}
+
+.brand-slider:hover .brand-track {
+    animation-play-state: paused;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .brand-track img {
+        width: 120px;
+        margin: 0 15px;
+    }
+
+    .our-brand-section h6 {
+        font-size: 1rem;
+    }
+
+    .our-brand-section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-track img {
+        width: 100px;
+        margin: 0 10px;
+    }
+}
+
+@keyframes scrollBrands {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-33.333%);
+    }
+}
+
+
+
+
+/* FEATURED VIDEO */
+.featured-video-section video {
+    max-height: 360px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767.98px) {
+    .text-video {
+        padding: 0 1rem;
+    }
+
+    .text-video h3 {
+        font-size: 1.5rem;
+    }
+
+    .text-video p {
+        font-size: 0.95rem;
+    }
+}
+
+.featured-video-section p {
+    text-align: justify;
+}
+
+
+
+
+/* PRODUK UNGGULAN */
+.produk-unggulan-section {
+    background-color: #F7F0E7;
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 300px;
+}
+
+@media (max-width: 576px) {
+    .card-img-top {
+        height: 200px;
+    }
+
+    .produk-unggulan-section h2 {
+        font-size: 1.75rem;
+    }
+
+    .produk-unggulan-section p {
+        font-size: 1rem;
+    }
+}
+
+
+/* GALLERY */
+.gallery-section {
+    background-color: #F7F0E7;
+    cursor: pointer;
+
+}
+
+.gallery-img {
+    transition: all 0.3s ease;
+}
+
+.gallery-img:hover {
+    filter: brightness(50%);
+    transition: all 0.3s ease;
+
+}
+
+
+
+
+/* FAQ*/
+.faq-section .card-body {
+    background-color: #F7F0E7;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #CB423F;
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom: #CB423F 2px solid;
+    font-weight: 410;
+}
+
+.accordion-button{
+    font-weight: 400;
+}
+
+.accordion-button:hover {
+    color: #CB423F;
+
+}
+
+.accordion-body {
+    font-weight: 300;
+}
+
+
+
+/* PRODUK TERLARIS */
+.produk-terlaris-section {
+    background-color: #F7F0E7;
+}
+
+.produk-terlaris-section  i{
+    font-size: 20px;
+}
+
+/* FOOTER */
+footer {
+    background-color: rgb(203, 66, 63);
+}
+
+
+/* TESTIMONIALS */
+.custom-carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  pointer-events: none;
+}
+
+.custom-carousel-controls button {
+  pointer-events: all;
+  background-color: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s ease;
+}
+
+.custom-carousel-controls .carousel-control-prev-icon,
+.custom-carousel-controls .carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+}
+
+@media (max-width: 767.98px) {
+  .custom-carousel-controls {
+    top: auto;
+    bottom: -4rem; /* Lower it below the image */
+    transform: none;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 0;
+  }
+
+  .custom-carousel-controls .carousel-control-prev,
+  .custom-carousel-controls .carousel-control-next {
+    position: static;
+  }
+
+  .testimonials-section .card img {
+    max-height: 300px;
+    object-fit: cover;
+  }
+
+  .testimonials-section {
+    margin-bottom: 2rem;
+  }
+}
+
+
+
+.about-hero-section {
+    margin-top: 8rem;
+    margin-bottom: 1rem;
+}
+
+.group-photo-kami {
+    width: 97%;
+}
+
+
+/* TENTANG KAMI */
+.tentang-kami-section p {
+    text-align: justify;
+}
+
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1010px ;
+}
+
+.right-group-pict {
+    height: 213px;
+    object-fit: cover;
+}
+
+.left-group-pict {
+    height: 450px;
+    object-fit: cover;
+}
+
+
+
+/* WHY */
+.why-section i {
+    font-size: 90px;
+}
+
+.why-section p {
+    text-align: justify;
+}
+
+.why-section .card-body {
+    padding: 40px 30px;
+}
+
+
+.why-section h4::before {
+    content: "";
+    display: block;
+    width: 40%;
+    height: 3px;
+    background: #CB423F;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.why-section .card {
+    transition: all ease 0.3s;
+}
+
+.why-section .card:hover {
+    box-shadow: 0 0 0 2px rgba(203, 66, 63, 1) !important;
+    transition: all ease 0.3s;
+}
+
+@media (max-width: 767px) {
+    .why-section i {
+        font-size: 60px; /* Shrink icon size on smaller screens */
+    }
+}
+
+
+
+
+/* PROMOTE ABOUT */
+@media (max-width: 767px) {
+  .promote-about-section img {
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+
+.product-hero-section {
+    margin-top: 7rem;
+}
+
+
+/* JASA DESAIN */
+.card-image-custom {
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top-left-radius: var(--bs-card-border-radius);
+    border-top-right-radius: var(--bs-card-border-radius);
+}
+
+@media (max-width: 576px) {
+    .card-image-custom {
+        height: 255px;
+    }
+}
+
+.card-img-1 {
+    background-image: url('../konten%20medsos.png');
+}
+
+.card-img-2 {
+    background-image: url('../desain%20logo.png');
+}
+
+.card-img-3 {
+    background-image: url('../desain%20kemasan%20produk.png');
+}
+
+.card-img-4 {
+    background-image: url('../branding.png');
+}
+
+.text-bubble-overlay {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    max-width: 100%;
+}
+
+
+
+
+
+
+
+
+/* PROMOTE PRODUCTS */
+.promote-products-section {
+    background-color: #F7F0E7;
+}
+
+/* Optional: Slight vertical spacing between text and button on small screens */
+@media (max-width: 576px) {
+    .promote-products-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .promote-products-section p {
+        font-size: 1rem;
+    }
+}
