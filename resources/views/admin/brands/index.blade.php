@@ -18,7 +18,7 @@
     @foreach($brands as $brand)
     <div class="col-md-3 mb-4">
         <div class="card">
-            <img src="{{ asset('storage/' . $brand->image) }}" class="card-img-top" alt="Brand Image" style="height: 200px; object-fit: cover;">
+            <img src="{{ asset('storage/' . $brand->image) }}" class="card-img-top" alt="Brand Image" style="height: 200px; object-fit: contain; padding: 20px;">
             <div class="card-body">
                 <form action="{{ route('brands.update', $brand->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf

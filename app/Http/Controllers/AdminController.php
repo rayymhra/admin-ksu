@@ -25,7 +25,7 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
-    // Carousel Management
+    // Carousel Management - Only Update
     public function carouselIndex()
     {
         $slides = CarouselSlide::with('images')->orderBy('order')->get();
@@ -67,22 +67,17 @@ class AdminController extends Controller
 
         if ($image) {
             // Delete old image
-            Storage::delete('public/' . $image->image);
+            if (Storage::exists('public/' . $image->image)) {
+                Storage::delete('public/' . $image->image);
+            }
 
             // Store new image
             $path = $file->store('carousel', 'public');
             $image->update(['image' => $path]);
-        } else {
-            // Create new image record
-            $path = $file->store('carousel', 'public');
-            $slide->images()->create([
-                'platform' => $platform,
-                'image' => $path,
-            ]);
         }
     }
 
-    // Brands Management
+    // Brands Management - Create, Update, Delete
     public function brandsIndex()
     {
         $brands = Brand::all();
@@ -114,7 +109,9 @@ class AdminController extends Controller
         $brand = Brand::findOrFail($id);
 
         // Delete old image
-        Storage::delete('public/' . $brand->image);
+        if (Storage::exists('public/' . $brand->image)) {
+            Storage::delete('public/' . $brand->image);
+        }
 
         // Store new image
         $path = $request->file('image')->store('brands', 'public');
@@ -129,7 +126,9 @@ class AdminController extends Controller
         $brand = Brand::findOrFail($id);
 
         // Delete image
-        Storage::delete('public/' . $brand->image);
+        if (Storage::exists('public/' . $brand->image)) {
+            Storage::delete('public/' . $brand->image);
+        }
 
         $brand->delete();
 
@@ -137,10 +136,17 @@ class AdminController extends Controller
             ->with('success', 'Brand berhasil dihapus.');
     }
 
-    // Promo Management
+    // Promo Management - Only Update
     public function promoIndex()
     {
         $promo = Promo::first();
+        if (!$promo) {
+            $promo = Promo::create([
+                'image' => 'promo/default.jpg',
+                'title' => 'Judul Promo',
+                'description' => 'Deskripsi promo'
+            ]);
+        }
         return view('admin.promo.index', compact('promo'));
     }
 
@@ -161,7 +167,9 @@ class AdminController extends Controller
 
         if ($request->hasFile('image')) {
             // Delete old image
-            Storage::delete('public/' . $promo->image);
+            if (Storage::exists('public/' . $promo->image)) {
+                Storage::delete('public/' . $promo->image);
+            }
 
             // Store new image
             $path = $request->file('image')->store('promo', 'public');
@@ -174,7 +182,7 @@ class AdminController extends Controller
             ->with('success', 'Promo berhasil diperbarui.');
     }
 
-    // Featured Products Management
+    // Featured Products Management - Only Update
     public function featuredProductsIndex()
     {
         $products = FeaturedProduct::all();
@@ -198,7 +206,9 @@ class AdminController extends Controller
 
         if ($request->hasFile('image')) {
             // Delete old image
-            Storage::delete('public/' . $product->image);
+            if (Storage::exists('public/' . $product->image)) {
+                Storage::delete('public/' . $product->image);
+            }
 
             // Store new image
             $path = $request->file('image')->store('featured-products', 'public');
@@ -211,7 +221,7 @@ class AdminController extends Controller
             ->with('success', 'Produk unggulan berhasil diperbarui.');
     }
 
-    // Testimonials Management
+    // Testimonials Management - Create, Update, Delete
     public function testimonialsIndex()
     {
         $testimonials = Testimonial::all();
@@ -243,7 +253,9 @@ class AdminController extends Controller
         $testimonial = Testimonial::findOrFail($id);
 
         // Delete old image
-        Storage::delete('public/' . $testimonial->image);
+        if (Storage::exists('public/' . $testimonial->image)) {
+            Storage::delete('public/' . $testimonial->image);
+        }
 
         // Store new image
         $path = $request->file('image')->store('testimonials', 'public');
@@ -258,7 +270,9 @@ class AdminController extends Controller
         $testimonial = Testimonial::findOrFail($id);
 
         // Delete image
-        Storage::delete('public/' . $testimonial->image);
+        if (Storage::exists('public/' . $testimonial->image)) {
+            Storage::delete('public/' . $testimonial->image);
+        }
 
         $testimonial->delete();
 
@@ -266,7 +280,7 @@ class AdminController extends Controller
             ->with('success', 'Testimonial berhasil dihapus.');
     }
 
-    // Gallery Management
+    // Gallery Management - Only Update
     public function galleryIndex()
     {
         $gallery = Gallery::all();
@@ -282,7 +296,9 @@ class AdminController extends Controller
         $gallery = Gallery::findOrFail($id);
 
         // Delete old image
-        Storage::delete('public/' . $gallery->image);
+        if (Storage::exists('public/' . $gallery->image)) {
+            Storage::delete('public/' . $gallery->image);
+        }
 
         // Store new image
         $path = $request->file('image')->store('gallery', 'public');
@@ -292,7 +308,7 @@ class AdminController extends Controller
             ->with('success', 'Gambar galeri berhasil diperbarui.');
     }
 
-    // FAQs Management
+    // FAQs Management - Only Update
     public function faqsIndex()
     {
         $faqs = Faq::all();
@@ -334,10 +350,15 @@ class AdminController extends Controller
             ->with('success', 'FAQ produk berhasil diperbarui.');
     }
 
-    // About Us Management
+    // About Us Management - Only Update
     public function aboutUsIndex()
     {
         $aboutUs = AboutUs::first();
+        if (!$aboutUs) {
+            $aboutUs = AboutUs::create([
+                'description' => 'Deskripsi tentang perusahaan'
+            ]);
+        }
         $aboutUsImages = AboutUsImage::all();
         return view('admin.about-us.index', compact('aboutUs', 'aboutUsImages'));
     }
@@ -366,7 +387,9 @@ class AdminController extends Controller
         $aboutUsImage = AboutUsImage::findOrFail($id);
 
         // Delete old image
-        Storage::delete('public/' . $aboutUsImage->image);
+        if (Storage::exists('public/' . $aboutUsImage->image)) {
+            Storage::delete('public/' . $aboutUsImage->image);
+        }
 
         // Store new image
         $path = $request->file('image')->store('about-us', 'public');
@@ -376,7 +399,7 @@ class AdminController extends Controller
             ->with('success', 'Gambar tentang kami berhasil diperbarui.');
     }
 
-    // Products Management
+    // Products Management - Create, Update, Delete
     public function productsIndex()
     {
         $products = Product::all();
@@ -420,7 +443,9 @@ class AdminController extends Controller
 
         if ($request->hasFile('image')) {
             // Delete old image
-            Storage::delete('public/' . $product->image);
+            if (Storage::exists('public/' . $product->image)) {
+                Storage::delete('public/' . $product->image);
+            }
 
             // Store new image
             $path = $request->file('image')->store('products', 'public');
@@ -438,7 +463,9 @@ class AdminController extends Controller
         $product = Product::findOrFail($id);
 
         // Delete image
-        Storage::delete('public/' . $product->image);
+        if (Storage::exists('public/' . $product->image)) {
+            Storage::delete('public/' . $product->image);
+        }
 
         $product->delete();
 
