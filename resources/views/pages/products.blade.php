@@ -9,7 +9,9 @@
             @foreach($products as $product)
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="card h-100">
-                    <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="{{ $product->product_name }}">
+                    <div class="ratio ratio-1x1">
+                        <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="{{ $product->product_name }}">
+                    </div>
                     <div class="card-body text-center">
                         <h5>{{ $product->product_name }}</h5>
                         <h6 class="text-danger">{{ $product->brand_name }}</h6>

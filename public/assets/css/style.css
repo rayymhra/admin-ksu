@@ -83,6 +83,12 @@
     scroll-behavior: smooth;
 }
 
+/* custom ratio for ~573x237 (~2.42:1) */
+.ratio-573x237 {
+    --bs-aspect-ratio: calc(273 / 573 * 100%); /* ≈ 37.2% */
+}
+
+
 .btn-danger {
     padding: 9px 14px;
     border-radius: 13px;

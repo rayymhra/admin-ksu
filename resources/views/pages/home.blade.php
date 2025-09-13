@@ -33,7 +33,7 @@
                             @if($desktopImage)
                             <img src="{{ asset('storage/' . $desktopImage->image) }}" class="d-block w-100" alt="Slide {{ $index + 1 }}">
                             @else
-                            <img src="{{ asset('assets/images/placeholder.jpg') }}" class="d-block w-100" alt="Slide {{ $index + 1 }}">
+                            <img src="{{ asset('assets/images/no-image.png') }}" class="d-block w-100" alt="Slide {{ $index + 1 }}">
                             @endif
                         </picture>
                     </div>

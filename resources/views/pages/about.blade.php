@@ -18,20 +18,28 @@
     <div class="container">
         <div class="row">
             @php
-                $leftImage = $aboutUsImages->where('column_position', 'left')->first();
-                $rightImages = $aboutUsImages->where('column_position', 'right');
+            $leftImage = $aboutUsImages->where('column_position', 'left')->first();
+            $rightImages = $aboutUsImages->where('column_position', 'right');
             @endphp
 
             @if($leftImage)
-            <div class="col-12 col-md-6 mb-4 mb-md-0">
-                <img src="{{ asset('storage/' . $leftImage->image) }}" alt="Group Photo" class="rounded w-100 group-photo-kami left-group-pict" style="height: 450px; object-fit: cover;">
-            </div>
-            @endif
+<div class="col-12 col-md-6 mb-4 mb-md-0">
+    <div class="ratio ratio-1x1">
+        <img src="{{ asset('storage/' . $leftImage->image) }}"
+             alt="Group Photo"
+             class="rounded w-100 h-100 object-fit-cover">
+    </div>
+</div>
+@endif
 
             <div class="col-12 col-md-6">
                 @foreach($rightImages as $image)
-                <img src="{{ asset('storage/' . $image->image) }}" alt="About Us Image" class="rounded w-100 mb-4 right-group-pict" style="height: 213px; object-fit: cover;">
-                @endforeach
+    <div class="ratio ratio-573x237 mb-4">
+        <img src="{{ asset('storage/' . $image->image) }}"
+             alt="About Us Image"
+             class="rounded w-100 h-100 object-fit-cover">
+    </div>
+    @endforeach
             </div>
         </div>
     </div>
