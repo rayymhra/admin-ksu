@@ -3,7 +3,6 @@
 @section('title', 'Home')
 
 @section('content')
-<!-- Hero Section -->
 <div class="hero-section">
     <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -15,30 +14,37 @@
         <div class="carousel-inner mx-auto">
             @foreach($carouselSlides as $index => $slide)
             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                <picture>
-                    @php
-                    $mobileImage = $slide->images->where('platform', 'mobile')->first();
-                    $tabletImage = $slide->images->where('platform', 'tablet')->first();
-                    $desktopImage = $slide->images->where('platform', 'desktop')->first();
-                    @endphp
+                <div class="ratio hero-ratio">
+                    <picture>
+                        @php
+                        $mobileImage = $slide->images->where('platform', 'mobile')->first();
+                        $tabletImage = $slide->images->where('platform', 'tablet')->first();
+                        $desktopImage = $slide->images->where('platform', 'desktop')->first();
+                        @endphp
 
-                    @if($mobileImage)
-                    <source srcset="{{ asset('storage/' . $mobileImage->image) }}" media="(max-width: 767px)">
-                        @endif
-
-                        @if($tabletImage)
-                        <source srcset="{{ asset('storage/' . $tabletImage->image) }}" media="(min-width: 768px) and (max-width: 1023px)">
+                        @if($mobileImage)
+                        <source srcset="{{ asset('storage/' . $mobileImage->image) }}" media="(max-width: 767px)">
                             @endif
 
-                            @if($desktopImage)
-                            <img src="{{ asset('storage/' . $desktopImage->image) }}" class="d-block w-100" alt="Slide {{ $index + 1 }}">
-                            @else
-                            <img src="{{ asset('assets/images/no-image.png') }}" class="d-block w-100" alt="Slide {{ $index + 1 }}">
-                            @endif
-                        </picture>
+                            @if($tabletImage)
+                            <source srcset="{{ asset('storage/' . $tabletImage->image) }}" media="(min-width: 768px) and (max-width: 1023px)">
+                                @endif
+
+                                @if($desktopImage)
+                                <img src="{{ asset('storage/' . $desktopImage->image) }}"
+                                class="d-block w-100 h-100 object-fit-cover"
+                                alt="Slide {{ $index + 1 }}">
+                                @else
+                                <img src="{{ asset('assets/images/no-image.png') }}"
+                                class="d-block w-100 h-100 object-fit-cover"
+                                alt="Slide {{ $index + 1 }}">
+                                @endif
+                            </picture>
+                        </div>
                     </div>
                     @endforeach
                 </div>
+                
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -166,6 +166,29 @@ body {
   }
 }
 
+/* hero ratio */
+/* Mobile: 360×510 → ratio = 510 / 360 ≈ 141.7% */
+@media (max-width: 767px) {
+  .hero-ratio {
+    --bs-aspect-ratio: calc(510 / 360 * 100%); /* ~141.7% */
+  }
+}
+
+/* Tablet: 1024×500 → ratio = 500 / 1024 ≈ 48.8% */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-ratio {
+    --bs-aspect-ratio: calc(500 / 1024 * 100%); /* ~48.8% */
+  }
+}
+
+/* Desktop: 1920×700 → ratio = 700 / 1920 ≈ 36.5% */
+@media (min-width: 1024px) {
+  .hero-ratio {
+    --bs-aspect-ratio: calc(700 / 1920 * 100%); /* ~36.5% */
+  }
+}
+
+
 
 
 

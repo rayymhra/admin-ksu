@@ -63,7 +63,7 @@
                 <div class="card-header bg-light border-bottom">
                     <div class="d-flex justify-content-between align-items-center">
                         <h6 class="mb-0 fw-bold">Brand #{{ $brand->id }}</h6>
-                        <span class="badge bg-success">Aktif</span>
+                        {{-- <span class="badge bg-success">Aktif</span> --}}
                     </div>
                 </div>
 
