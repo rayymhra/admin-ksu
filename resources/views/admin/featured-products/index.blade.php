@@ -1,11 +1,23 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Kelola Produk Unggulan</h1>
+<!-- Content Header -->
+<div class="content-header">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <h1>Kelola Produk Unggulan</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Produk Unggulan</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
 </div>
 
-@if(session('success'))
+<div class="px-4">
+    @if(session('success'))
 <div class="alert alert-success">
     {{ session('success') }}
 </div>
@@ -42,5 +54,7 @@
         </div>
     </div>
     @endforeach
+</div>
+
 </div>
 @endsection

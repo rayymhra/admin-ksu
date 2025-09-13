@@ -36,7 +36,7 @@
         /* Modern Sidebar */
         .sidebar {
             background: white;
-            min-height: 100vh;
+            height: 100vh;
             width: var(--sidebar-width);
             box-shadow: var(--shadow-lg);
             border-right: 1px solid var(--border-light);
@@ -53,6 +53,7 @@
             padding: 1.5rem;
             border-bottom: 1px solid var(--border-light);
             background: white;
+            flex-shrink: 0; /* Prevent brand from shrinking */
         }
 
         .sidebar .brand h4 {
@@ -66,6 +67,7 @@
         .sidebar .nav-section {
             padding: 1rem 0;
             flex-grow: 1;
+            overflow-y: auto !important; /* Make navigation scrollable */
         }
 
         .sidebar .nav-link {
@@ -101,6 +103,7 @@
             padding: 1.5rem;
             border-top: 1px solid var(--border-light);
             background: white;
+            flex-shrink: 0; /* Prevent user profile from shrinking */
         }
 
         .user-profile .dropdown-toggle {
@@ -456,29 +459,14 @@
 
         <!-- User Profile -->
         <div class="user-profile">
-            <div class="dropdown">
-                <button class="dropdown-toggle text-decoration-none d-flex align-items-center w-100" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://github.com/mdo.png" alt="Admin" class="user-avatar">
-                    <div class="flex-grow-1 text-start">
-                        <div class="fw-semibold">{{ Auth::user()->name }}</div>
-                        <small class="text-muted">Administrator</small>
-                    </div>
-                    <i class="bi bi-chevron-down text-muted"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userDropdown">
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profil</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Pengaturan</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
-                                <i class="bi bi-box-arrow-right me-2"></i>Keluar
-                            </a>
-                        </form>
-                    </li>
-                </ul>
-            </div>
+
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <a class="btn btn-primary-custom w-100 mt-2" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
+                    <i class="bi bi-box-arrow-right me-2"></i>Keluar
+                </a>
+            </form>
+
         </div>
     </div>
 

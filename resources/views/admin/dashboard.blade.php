@@ -35,7 +35,7 @@
     </div>
 
     <!-- Stats Overview -->
-    <div class="row mb-4">
+    {{-- <div class="row mb-4">
         <div class="col-md-3 col-sm-6 mb-4">
             <div class="card h-100">
                 <div class="card-body">
@@ -96,10 +96,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Management Cards -->
-    <h4 class="section-title">Kelola Konten</h4>
+    {{-- <h4 class="section-title">Kelola Konten</h4> --}}
     <div class="row">
         <div class="col-md-4 mb-4">
             <div class="card h-100">
