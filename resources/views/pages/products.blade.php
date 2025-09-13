@@ -13,7 +13,7 @@
                     <div class="card-body text-center">
                         <h5>{{ $product->product_name }}</h5>
                         <h6 class="text-danger">{{ $product->brand_name }}</h6>
-                        <div class="btn btn-danger mt-3">Beli Sekarang</div>
+                        <a href="" class="btn btn-danger mt-3">Beli Sekarang</a>
                     </div>
                 </div>
             </div>

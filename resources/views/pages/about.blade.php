@@ -37,7 +37,7 @@
     </div>
 </div>
 
-<div class="why-section py-5">
+<div class="why-section py-5 mb-5">
     <div class="container">
         <div class="text-center">
             <h2 class="fw-bold">Kenapa Memilih Kami</h2>
