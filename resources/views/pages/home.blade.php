@@ -44,7 +44,7 @@
                     </div>
                     @endforeach
                 </div>
-                
+
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -64,12 +64,16 @@
                 <div class="brand-slider">
                     <div class="brand-track">
                         @foreach($brands as $brand)
-                        <img src="{{ asset('storage/' . $brand->image) }}" alt="Brand Image">
+                        <div class="ratio ratio-2x1 brand-logo">
+                            <img src="{{ asset('storage/' . $brand->image) }}" alt="Brand Image">
+                        </div>
                         @endforeach
 
                         <!-- Duplicate for seamless looping -->
                         @foreach($brands as $brand)
+                        <div class="ratio ratio-2x1 brand-logo">
                         <img src="{{ asset('storage/' . $brand->image) }}" alt="Brand Image">
+                        </div>
                         @endforeach
                     </div>
                 </div>

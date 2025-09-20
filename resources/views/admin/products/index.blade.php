@@ -7,11 +7,11 @@
 <div class="content-header">
     <div class="d-flex justify-content-between align-items-center">
         <div>
-            <h1>Kelola Brand</h1>
+            <h1>Kelola Produk</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Brand</li>
+                    <li class="breadcrumb-item active">Produk</li>
                 </ol>
             </nav>
         </div>

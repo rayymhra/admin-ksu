@@ -210,15 +210,22 @@ body {
     align-items: center;
 }
 
-.brand-track img {
-    width: 200px;
+/* Logo container (2:1 ratio) */
+.brand-logo {
+    width: 200px; /* same as before */
     margin: 0 30px;
     flex-shrink: 0;
-    object-fit: contain;
+}
+
+/* Keep logos inside their box */
+.brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* no stretch, keeps proportions */
     transition: transform 0.3s ease;
 }
 
-.brand-track img:hover {
+.brand-logo img:hover {
     transform: scale(1.05);
 }
 
@@ -228,15 +235,13 @@ body {
 
 /* Responsive Styling */
 @media (max-width: 768px) {
-    .brand-track img {
+    .brand-logo {
         width: 120px;
         margin: 0 15px;
     }
-
     .our-brand-section h6 {
         font-size: 1rem;
     }
-
     .our-brand-section {
         padding-top: 3rem;
         padding-bottom: 3rem;
@@ -244,7 +249,7 @@ body {
 }
 
 @media (max-width: 480px) {
-    .brand-track img {
+    .brand-logo {
         width: 100px;
         margin: 0 10px;
     }
@@ -257,6 +262,11 @@ body {
     100% {
         transform: translateX(-33.333%);
     }
+}
+
+.ratio-2x1 {
+  /* prefer Bootstrap's variable if .ratio exists */
+  --bs-aspect-ratio: 70%;
 }
 
 
@@ -301,8 +311,8 @@ body {
 }
 
 @media (max-width: 576px) {
-    .card-img-top {
-        height: 200px;
+    .produk-unggulan-section .btn-danger {
+        margin-bottom: 10px;
     }
 
     .produk-unggulan-section h2 {

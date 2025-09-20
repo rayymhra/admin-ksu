@@ -81,7 +81,7 @@
             <div class="card h-100">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <span><i class="bi bi-layers me-2"></i>Slide {{ $slide->order }}</span>
-                    <span class="badge bg-light text-dark">{{ $slide->is_active ? 'Aktif' : 'Nonaktif' }}</span>
+                    {{-- <span class="badge bg-light text-dark">{{ $slide->is_active ? 'Aktif' : 'Nonaktif' }}</span> --}}
                 </div>
                 <div class="card-body">
                     <form action="{{ route('carousel.update', $slide->id) }}" method="POST" enctype="multipart/form-data">
@@ -189,9 +189,9 @@
         transition: transform 0.2s ease;
     }
 
-    .card:hover img {
+    /* .card:hover img {
         transform: scale(1.02);
-    }
+    } */
 
     .bg-light {
         background-color: #f8f9fa !important;

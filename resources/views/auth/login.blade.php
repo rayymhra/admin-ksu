@@ -376,7 +376,7 @@
     </div>
 
     <div class="footer">
-        &copy; 2023 KSU Admin Portal · v2.1
+        &copy; 2025 KSU Admin Portal
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
